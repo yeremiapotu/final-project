@@ -29,7 +29,6 @@ const Navbar = ({ onSearch }) => {
             </Link>
           </div>
         </div>
-        {/* Search Form */}
         <form onSubmit={handleSearch} className="flex w-full sm:w-auto space-x-2">
           <input type="text" name="search" placeholder="Search news..." className="flex-1 border border-red-600 rounded-lg p-2 outline-none sm:w-auto" />
           <button type="submit" className="text-white bg-red-600 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5">
