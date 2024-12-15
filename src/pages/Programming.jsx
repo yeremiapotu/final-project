@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import NewsCard from "../components/NewsCard";
+import Banner from "../components/Banner";
+
+const Programming = () => {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get("https://newsapi.org/v2/everything", {
+          params: {
+            q: "programming",
+            apiKey: "c816eee74fb34114aeb582eccfb172ef",
+          },
+        });
+
+        const validNews = response.data.articles.filter((article) => article.title && article.description && article.url && article.urlToImage);
+
+        setNews(validNews);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) return <p className="h-screen text-center mt-5 text-lg text-gray-600">Loading...</p>;
+
+  return (
+    <div className="container m-auto px-4">
+      <Banner />
+      <div>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold py-5 text-center md:text-left">Latest - News About Programming</h1>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {news.map((article, index) => (
+          <NewsCard key={index} article={article} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Programming;
