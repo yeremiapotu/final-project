@@ -4,6 +4,7 @@ import NewsCardSaved from "../components/NewsCardSaved";
 
 const Saved = () => {
   useEffect(() => {
+    document.title = "AINews - Saved";
     window.scrollTo(0, 0);
   }, []);
 

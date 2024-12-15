@@ -8,6 +8,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "AINews - Home";
     window.scrollTo(0, 0);
 
     const fetchNews = async () => {

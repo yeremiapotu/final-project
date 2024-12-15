@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/ainews-logo.png";
 
 const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
@@ -16,7 +17,8 @@ const Navbar = ({ onSearch }) => {
     <div className="bg-white sticky top-0 shadow z-10">
       <div className="container mx-auto flex flex-wrap justify-between items-center py-4 px-4">
         <div className="flex space-x-5 items-center justify-between w-full sm:w-auto mb-4 sm:mb-0">
-          <h1 className="text-red-600 text-2xl font-bold">AINews</h1>
+          {/* <h1 className="text-red-600 text-2xl font-bold">AINews</h1> */}
+          <img src={logo} alt="Logo" className="h-12" />
           <div className="flex space-x-5 text-sm sm:text-base">
             <Link to="/" className="hover:text-red-600">
               Home
