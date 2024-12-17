@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Programming from "./pages/Programming";
 import Saved from "./pages/Saved";
-import SearchResults from "./pages/SearchResults";
+import Search from "./pages/Search";
 
 const App = () => {
   const [keyword, setKeyword] = useState("");
@@ -49,7 +49,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/programming" element={<Programming />} />
         <Route path="/saved" element={<Saved />} />
-        <Route path="/search" element={<SearchResults news={news} loading={loading} />} />
+        <Route path="/search" element={<Search news={news} loading={loading} />} />
       </Routes>
       <Footer />
     </Router>

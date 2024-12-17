@@ -8,7 +8,7 @@ const Programming = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = "AINews - Home";
+    document.title = "AINews - Programming";
     window.scrollTo(0, 0);
 
     const fetchNews = async () => {
@@ -41,7 +41,7 @@ const Programming = () => {
     <div className="container m-auto px-4">
       <Banner />
       <div>
-        <h1 className="text-lg sm:text-xl md:text-2xl font-bold py-5 text-center md:text-left">Latest - News In Indonesia</h1>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold py-5 text-center md:text-left">News About Programming</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {news.map((article, index) => (
