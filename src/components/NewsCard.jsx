@@ -17,7 +17,7 @@ const NewsCard = ({ article }) => {
 
   return (
     <div>
-      <img src={article.urlToImage || "https://via.placeholder.com/300x200?text=No+Image"} alt={article.title || "No Title"} className="w-full h-48 object-cover rounded-xl border-2" />
+      <img src={article.image || "https://via.placeholder.com/300x200?text=No+Image"} alt={article.title || "No Title"} className="w-full h-48 object-cover rounded-xl border-2" />
       <h1 className="mt-3 text-lg font-bold">
         <a href={article.url} target="_blank" rel="noopener noreferrer" className="hover:text-red-600">
           {article.title || "No Title Available"}
@@ -25,7 +25,7 @@ const NewsCard = ({ article }) => {
       </h1>
       <p className="text-gray-600 mt-3 text-sm">{article.description || "No description available."}</p>
       <div className="flex text-center justify-between gap-5 mt-3">
-        <p className="text-gray-600">{article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : "No date available."}</p>
+        <p className="text-gray-600 text-sm">Published {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString() : "No date available."}</p>
         <button onClick={handleSaveOrRemove} className="text-red-600 font-medium">
           {isSaved ? (
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 24 24">

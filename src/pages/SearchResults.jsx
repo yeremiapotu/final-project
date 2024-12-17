@@ -14,14 +14,16 @@ const SearchResults = () => {
 
     const fetchNews = async () => {
       try {
-        const response = await axios.get("https://newsapi.org/v2/everything", {
+        const response = await axios.get("https://gnews.io/api/v4/search", {
           params: {
             q: query,
-            apiKey: "c816eee74fb34114aeb582eccfb172ef",
+            token: "e2d3af6ddc3ff939873f51e33bec9d25",
+            lang: "en",
+            max: 20,
           },
         });
 
-        const validNews = response.data.articles.filter((article) => article.title && article.description && article.url && article.urlToImage);
+        const validNews = response.data.articles.filter((article) => article.title && article.description && article.url && article.image);
 
         setNews(validNews);
       } catch (error) {
