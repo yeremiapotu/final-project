@@ -7,18 +7,19 @@ const Programming = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+  const API_KEY = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
     document.title = "AINews - Programming";
     window.scrollTo(0, 0);
 
     const fetchNews = async () => {
       try {
-        const response = await axios.get("https://gnews.io/api/v4/search", {
+        const response = await axios.get(API_URL, {
           params: {
             q: "programming",
-            lang: "en",
-            country: "id",
-            token: "e2d3af6ddc3ff939873f51e33bec9d25",
+            token: `${API_KEY}`,
           },
         });
 
